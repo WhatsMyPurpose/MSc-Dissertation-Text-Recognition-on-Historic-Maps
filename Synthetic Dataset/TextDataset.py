@@ -28,7 +28,7 @@ class DataGen:
         self.TrainOrTest = 'Train'
         self.OpenDictionary()
 
-    
+
     def CheckFonts(self):
         availableFonts = []
         for font in self.fonts:
@@ -253,9 +253,8 @@ class DataGen:
 
 
     def GenerateDataSet(self, numImages, TrainOrTest='Train'):
-        self.TrainOrTest = 'Train'
-        if TrainOrTest.lower() == 'test':
-            self.TrainOrTest = 'Test'
+        assert TrainOrTest=='Train' or TrainOrTest=='Test'
+        self.TrainOrTest = TrainOrTest
 
         imagePaths = glob.glob(self.imgFoldPath+r'\*')
         numPaths = len(imagePaths)
@@ -266,9 +265,8 @@ class DataGen:
 
 
     def ParallelGenerateDataSet(self, numImages, TrainOrTest='Train', num_cores=0):
-        self.TrainOrTest = 'Train'
-        if TrainOrTest.lower() == 'test':
-            self.TrainOrTest = 'Test'
+        assert TrainOrTest=='Train' or TrainOrTest=='Test'
+        self.TrainOrTest = TrainOrTest
 
         imagePaths = glob.glob(self.imgFoldPath+r'\*')
 
